@@ -3,7 +3,6 @@
 namespace controller;
 use model\TablaLogin;
 use config\Router;
-require_once realpath('.../../vendor/autoload.php');
 session_start();
 
 class Login{
@@ -14,19 +13,33 @@ class Login{
         if($usuario){
             if($usuario['password']== $_POST['password']){
                 $_SESSION['datos_usuario'] = $usuario;
-                $route->redirigir('home');
+                // $ro  ute->redirigir('home');
             }else{
-                $route->redirigir('login');
+              //  $route->redirigir('login');
             }
         }else{
-            $route->redirigir('login');
+            //$route->redirigir('login');
         }
     }
 
-    public function registro(){
+    // public function registro(){
+    //     $login = new TablaLogin();
+    //     return $login->insercion(['email'=>'erik@gmail.com', 'pass'=>'369258147']);
+    // }
+    public function index(){
+        // echo "HOLA";
+    }
+    public function home(){
+        echo "HOLA";
         $login = new TablaLogin();
-        return $login->insercion(['email'=>'erik@gmail.com', 'pass'=>'369258147']);
+        echo json_encode($login->consulta()->all());
+    }
+    //Crear lo mismo pero con la misma tabla  
+    public function test(){
+        echo "HOLA";
+
     }
 }
+$controlador = new Login();
 
 ?>
