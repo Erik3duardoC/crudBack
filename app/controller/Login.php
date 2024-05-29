@@ -28,6 +28,8 @@ class Login{
     // }
     public function index(){
         // echo "HOLA";
+        $vista = view('login');
+        return $vista;
     }
     public function home(){
         echo "HOLA";

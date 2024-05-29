@@ -3,6 +3,13 @@
     use config\Router;
     require_once realpath('./vendor/autoload.php');
     require_once './app/config/MyRoutes.php';
+
+    if ($router->peticion('ruta') === 'login') {
+        require_once './app/controller/Login.php';
+        $login = new Login();
+        $login->index();
+    }
+    
     ?>
 
     <!DOCTYPE html>
